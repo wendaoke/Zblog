@@ -30,8 +30,8 @@
               <li><a class="${type=='approve'?'active':''}" href="?type=approve">获准
                <c:if test="${stat.approve!=null}"><span>(${stat.approve})</span></c:if> | </a>
               </li>
-              <li><a class="${type=='trash'?'active':''}" href="?type=trash">垃圾评论
-               <c:if test="${stat.trash!=null}"><span>(${stat.trash})</span></c:if></a>
+              <li><a class="${type=='reject'?'active':''}" href="?type=reject">垃圾评论
+               <c:if test="${stat.reject!=null}"><span>(${stat.reject})</span></c:if></a>
               </li>
             </ul>
            <table id="post-table" class="table table-striped list-table">

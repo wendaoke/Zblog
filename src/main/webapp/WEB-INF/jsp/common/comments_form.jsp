@@ -23,11 +23,11 @@
        <label for="author"><span>昵称</span>( 必须 )</label>
        <input id="author" autocomplete="off" type="text" aria-required="true" size="22" name="creator">
       </div>
-      <div id="guest_email">
+      <div id="guest_email" style="display:none">
         <label for="email"><span>E-MAIL</span>( 必须 ) - 不会公开 -</label>
         <input id="email" autocomplete="off" type="text" aria-required="true" size="22" name="email">
       </div>
-      <div id="guest_url">
+      <div id="guest_url"  style="display:none">
         <label for="url"><span>网址</span></label>
         <input id="url" type="text" tabindex="3" size="22" placeholder="http://" name="url">
       </div>

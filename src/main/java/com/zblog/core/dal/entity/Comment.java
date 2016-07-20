@@ -13,7 +13,7 @@ public class Comment extends BaseEntity{
   /* 内容 */
   private String content;
   /* 评论状态 */
-  private String status = CommentConstants.TYPE_WAIT;
+  private String status = CommentConstants.TYPE_APPROVE;
   /* 评论者的userAgent */
   private String agent;
   /* 父评论ID */

@@ -57,7 +57,7 @@ public class MapContainer extends LinkedHashMap<String, Object>{
    * @param value
    * @return
    */
-  public <T> T putIfAbsent(String key, T value){
+  public <T> T putWhenAbsent(String key, T value){
     T result = value;
     if(containsKey(key)){
       result = get(key);

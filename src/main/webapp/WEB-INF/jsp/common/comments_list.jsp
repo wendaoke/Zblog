@@ -21,7 +21,7 @@
       <c:if test="${comment.status=='approve'}"><div class="comment-reply"><a href='#respond'>回复</a></div></c:if>
      </div>
      <div class="comment-content">
-       <c:if test="${comment.status=='wait'}">
+       <c:if test="${comment.status!='approve'}">
         <span class="comment-note">你的评论正在等待审核。。。</span>
       </c:if>
        <p>${comment.content}</p>

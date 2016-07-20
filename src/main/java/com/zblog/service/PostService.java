@@ -13,6 +13,7 @@ import com.zblog.core.dal.mapper.BaseMapper;
 import com.zblog.core.dal.mapper.PostMapper;
 import com.zblog.core.plugin.MapContainer;
 import com.zblog.core.plugin.PageModel;
+import com.zblog.core.tag.ShiroFunctions;
 import com.zblog.service.vo.PageVO;
 
 @Service
@@ -64,11 +65,25 @@ public class PostService extends BaseService{
   public PageModel<String> listPost(int pageIndex, int pageSize){
     PageModel<String> page = new PageModel<>(pageIndex, pageSize);
     page.insertQuery("type", PostConstants.TYPE_POST);
+    if(ShiroFunctions.isAuthenticated()&&!ShiroFunctions.hasRole("admin")){
+    	String username = (String)ShiroFunctions.getPrincipals().getPrimaryPrincipal();  
+	    page.insertQuery("creator",username);
+    }
     super.list(page);
     /* 由于分页标签会根据query产生,这里删除掉无用query,下同 */
     page.removeQuery("type");
     return page;
   }
+  
+  public PageModel<String> listPost(int pageIndex, int pageSize,String creator){
+	    PageModel<String> page = new PageModel<>(pageIndex, pageSize);
+	    page.insertQuery("type", PostConstants.TYPE_POST);
+	    page.insertQuery("creator", creator);
+	    super.list(page);
+	    /* 由于分页标签会根据query产生,这里删除掉无用query,下同 */
+	    page.removeQuery("type");
+	    return page;
+	  }
 
   public PageModel<String> listByCategory(Category category, int pageIndex, int pageSize){
     PageModel<String> page = new PageModel<>(pageIndex, pageSize);

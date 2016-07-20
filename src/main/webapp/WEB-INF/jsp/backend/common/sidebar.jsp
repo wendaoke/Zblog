@@ -2,17 +2,30 @@
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
 <ul class="side-menu">
-  <li><a class="nav-header" href="#">
-        <i class="left glyphicon glyphicon-home" aria-hidden="true"></i>系统设置
-        <i class="right glyphicon glyphicon-chevron-down" aria-hidden="true"></i></a>
-    <ul class="sub-menu" style="display: block;">
-      <li><a href="${g.domain}/backend/index">首页</a></li>
-      <li><a href="${g.domain}/backend/options/general">常规选项</a></li>
-      <li><a href="${g.domain}/backend/options/post">撰写/阅读</a></li>
-      <li><a class="last" href="${g.domain}/backend/options/email">邮件评论</a></li>
+  <shiro:hasRole name="admin">
+	  <li><a class="nav-header" href="#">
+	        <i class="left glyphicon glyphicon-home" aria-hidden="true"></i>系统设置
+	        <i class="right glyphicon glyphicon-chevron-down" aria-hidden="true"></i></a>
+	    <ul class="sub-menu" style="display: block;">
+	      <li><a href="${g.domain}/backend/index">首页</a></li>
+	      <li><a href="${g.domain}/backend/options/general">常规选项</a></li>
+	      <li><a href="${g.domain}/backend/options/post">撰写/阅读</a></li>
+	      <li><a class="last" href="${g.domain}/backend/options/email">邮件评论</a></li>
+	    </ul>
+	   </li>
+   </shiro:hasRole>
+   <shiro:hasAnyRoles name="editor">
+   <li><a class="nav-header" href="#">
+        <i class="left glyphicon glyphicon-send" aria-hidden="true"></i>文章
+        <i class="right glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
+        </a>
+     <ul class="sub-menu">
+      <li><a href="${g.domain}/backend/posts/edit">写文章</a></li>
+      <li><a href="${g.domain}/backend/posts">所有文章</a></li>
     </ul>
-   </li>
-   <shiro:hasAnyRoles name="admin,editor">
+  </li>
+  </shiro:hasAnyRoles>
+   <shiro:hasAnyRoles name="admin">
    <li><a class="nav-header" href="#">
         <i class="left glyphicon glyphicon-send" aria-hidden="true"></i>文章
         <i class="right glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
@@ -32,7 +45,7 @@
       <li><a class="last" href="${g.domain}/backend/uploads/edit">添加</a></li>
     </ul>
   </li>
-  </shiro:hasAnyRoles>
+  </shiro:hasAnyRoles>  
   
   <shiro:hasRole name="admin">
   <li><a class="nav-header" href="#">

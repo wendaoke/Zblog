@@ -25,7 +25,11 @@
    </select>
    
    <select id="list" parameterType="PageModel" resultType="java.lang.String">  
-      select id from post p where p.type=#{query.type} order by p.createTime desc
+      select id from post p where p.type=#{query.type} 
+     	<if test="query.creator!=null and query.creator!='all'">
+          and creator=#{query.creator} 
+        </if>
+        order by p.createTime desc
    </select>
    
    <select id="listPage" resultType="PageVO" parameterType="boolean">

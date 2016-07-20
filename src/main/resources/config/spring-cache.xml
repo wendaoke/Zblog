@@ -76,9 +76,11 @@
   
   <cache:advice id="categoryAdvisor" cache-manager="cacheManager">
     <cache:caching cache="categorys">
+    <!-- 
        <cache:cacheable method="loadById" key="#p0" />
        <cache:cacheable method="loadByName" key="#p0" />
        <cache:cache-evict method="remove" all-entries="true" />
+        -->
     </cache:caching>
   </cache:advice>
   

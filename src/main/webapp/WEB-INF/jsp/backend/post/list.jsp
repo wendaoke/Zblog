@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="page" uri="/WEB-INF/tld/pagination.tld" %>
 <%@ taglib prefix="z" uri="/WEB-INF/tld/function.tld" %>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE Html>
 <html>
  <head>
@@ -27,7 +28,9 @@
                <thead><tr>
                  <th style="width: 35%;">标题</th>
                  <th>作者</th>
+                 <shiro:hasAnyRoles name="admin">                 
                  <th>分类</th>
+                 </shiro:hasAnyRoles>
                  <th>日期</th>
                  <th>Views</th>
                  <th class="center">操作</th>
@@ -40,13 +43,15 @@
                      </strong>
                      <span class="hide"><i class="post-ps">${post.pstatus}</i>
                           <i class="post-cs">${post.cstatus}</i><i class="post-tags">${z:join(post.tags,',')}</i></span>
-                     <div class="row-action">
+                     <div class="row-action" style="display:none">
                        <span><a href="#">编辑</a>&nbsp;|&nbsp;</span>
                        <span><a href="#" onclick="zblog.post.fastedit('${post.id}')">快速编辑</a>&nbsp;|&nbsp;</span>
                        <span><a href="#">移到回收站</a>&nbsp;|&nbsp;</span>
                        <span><a target="_blank" href="${g.domain}/pages/${post.id}">查看</a></span>
                      </div></td><td class="post-author">${post.user.nickName}</td>
+                     <shiro:hasAnyRoles name="admin">   
                      <td class="post-category">${post.category.name}</td>
+                     </shiro:hasAnyRoles>
                      <td class="post-ctime"><fmt:formatDate value="${post.createTime}" pattern="yyyy-MM-dd" /></td>
                      <td>${post.rcount} views</td>
                      <td class="center"><span class="icon glyphicon glyphicon-pencil pointer" onclick="zblog.post.edit('${post.id}')"></span>
@@ -55,7 +60,7 @@
                </c:forEach>
                <tr id="edit-row">
                  <td colspan="6">
-                  <div class="edit-col-left">
+                  <div class="edit-col-left" >
                     <h5>快速编辑</h5>
                     <span><label>标题</label><input type="text" name="title" autocomplete="off"></span>
                     <span><label>日期</label><input type="text" name="createTime" readonly="readonly"></span>

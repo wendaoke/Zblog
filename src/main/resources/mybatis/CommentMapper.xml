@@ -33,8 +33,8 @@
    </select>
    
    <insert id="insert" parameterType="Comment">
-      insert into comment(id,postid, parent, email, url, ip, agent,content, creator, createTime) 
-         values(#{id},#{postid},#{parent},#{email},#{url},#{ip},#{agent},#{content},#{creator},#{createTime})
+      insert into comment(id,postid, parent, email, url, ip, agent,content, creator, createTime,status) 
+         values(#{id},#{postid},#{parent},#{email},#{url},#{ip},#{agent},#{content},#{creator},#{createTime},#{status})
    </insert>
    
    <update id="setStatus">

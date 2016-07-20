@@ -65,24 +65,22 @@ $(function(){
   };
   
   $("#submit_comment").click(function(){
+	 
     var form=$("#respond").find(":text,textarea");
     if(!getCookie("comment_author")&&form.length!=4) return ;
     
     var data={};
     for(var i=0;i<form.length;i++){
       var item=form.slice(i,i+1);
-      if(!check(item.attr("name"),item.val())){
-        item.focus();
-        return ;
-      }
-      
+//      if("" == $.trim(item.val())){
+//        item.focus();
+//        return ;
+//      }
       data[item.attr("name")]=item.val();
     }
-    
     $("#respond :hidden").each(function(index,item){
       data[item.name]=item.value;
     });
-    
     $.post("/comments",data,function(msg){
       if(msg&&msg.success){
         $("textarea").val("");

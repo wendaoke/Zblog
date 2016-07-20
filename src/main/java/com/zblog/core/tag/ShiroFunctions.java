@@ -110,6 +110,10 @@ public class ShiroFunctions{
     return !subject.isAuthenticated();
   }
 
+//  public static String getCurrentUser(){
+//	  Subject subject = SecurityUtils.getSubject();
+//	 return  subject.getPrincipal().toString();
+//  }
   private ShiroFunctions(){
   }
 

@@ -3,12 +3,13 @@ $(function(){
   $('#editor-nav a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
-    zblog.post.editType=$(this).attr("href").substring(8);
+ //   zblog.post.editType=$(this).attr("href").substring(8);
+    zblog.post.editType="ue";
   });
   
   if(!document.getElementById("ueditor")) return ;
   
-  zblog.post.editType='mk';
+  zblog.post.editType='ue';
   zblog.post.ueditor = UE.getEditor('ueditor',{
     /* 阻止div标签自动转换为p标签 */
     allowDivTransToP: false,
@@ -20,20 +21,20 @@ $(function(){
     zblog.post.ueditor.execCommand('serverparam',{'CSRFToken': zblog.newCsrf()});
   });
   
-  zblog.post.epiceditor=new EpicEditor({
-    basePath: window.location.protocol+"//"+window.location.port+window.location.host+"/resource/epiceditor-0.2.3",
-    useNativeFullscreen: false,
-    clientSideStorage: false,
-    file:{
-      defaultContent: $("#editor-txt-tt").val(),
-      autoSave: false
-    },
-    autogrow: {
-      minHeight: 400,
-      maxHeight: 600
-    }
-  });
-  zblog.post.epiceditor.load();
+//  zblog.post.epiceditor=new EpicEditor({
+//    basePath: window.location.protocol+"//"+window.location.port+window.location.host+"/resource/epiceditor-0.2.3",
+//    useNativeFullscreen: false,
+//    clientSideStorage: false,
+//    file:{
+//      defaultContent: $("#editor-txt-tt").val(),
+//      autoSave: false
+//    },
+//    autogrow: {
+//      minHeight: 400,
+//      maxHeight: 600
+//    }
+//  });
+//  zblog.post.epiceditor.load();
 });
 
 zblog.post.insert=function(){
@@ -45,18 +46,20 @@ zblog.post.insert=function(){
   
   var _getText=function(){
     var result;
-    switch(zblog.post.editType){
-    case "ue":
-      result = zblog.post.ueditor.getContent();
-      break;
-    case "txt":
-      result = $("#editor-txt-tt").val();
-      break;
-    case "mk":
-      result = zblog.post.epiceditor.getElement('previewer').body.innerHTML;
-      break;
-    default: result="";
-    }
+//    switch(zblog.post.editType){
+//    case "ue":
+//      result = zblog.post.ueditor.getContent();
+//      break;
+//    case "txt":
+//      result = $("#editor-txt-tt").val();
+//      break;
+//    case "mk":
+//      result = zblog.post.epiceditor.getElement('previewer').body.innerHTML;
+//      break;
+//    default: result="";
+//    }
+    
+    result = zblog.post.ueditor.getContent();
     
     return result;
   }

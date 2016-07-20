@@ -140,6 +140,10 @@ public class PostManager{
   public PageModel<PostVO> listPost(int pageIndex, int pageSize){
     return pageId2pageVo(postService.listPost(pageIndex, pageSize));
   }
+  
+  public PageModel<PostVO> listPost(int pageIndex, int pageSize,String creator){
+	  return pageId2pageVo(postService.listPost(pageIndex, pageSize,creator)); 
+  }
 
   public PageModel<PostVO> listPage(int pageIndex, int pageSize){
     return pageId2pageVo(postService.listPage(pageIndex, pageSize));

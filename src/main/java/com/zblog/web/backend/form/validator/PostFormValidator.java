@@ -35,9 +35,11 @@ public class PostFormValidator{
       form.put("msg", "文章标题未填写");
     }else if(verifyContent && StringUtils.isBlank(post.getContent())){
       form.put("msg", "请填写文章内容");
-    }else if(PostConstants.TYPE_POST.equals(post.getType()) && StringUtils.isBlank(post.getCategoryid())){
-      form.put("msg", "请选择文章分类");
     }
+    
+//    else if(PostConstants.TYPE_POST.equals(post.getType()) && StringUtils.isBlank(post.getCategoryid())){
+//      form.put("msg", "请选择文章分类");
+//    }
 
     return form;
   }

@@ -24,7 +24,12 @@ public class ArticleAdapter implements Article{
 
   @Override
   public String getCategory(){
-    return post.getCategory().getName();
+	  if(null != post.getCategory()){
+		  return post.getCategory().getName(); 
+	  }else{
+		  return "";
+	  }
+    
   }
 
   @Override
