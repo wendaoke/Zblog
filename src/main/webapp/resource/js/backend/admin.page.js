@@ -8,7 +8,7 @@ $(function(){
   
   if(!document.getElementById("ueditor")) return ;
   
-  zblog.page.editType='mk';
+  zblog.page.editType='ue';
   zblog.page.ueditor = UE.getEditor('ueditor',{
     /* 阻止div标签自动转换为p标签 */
     allowDivTransToP: false,
@@ -19,20 +19,6 @@ $(function(){
     zblog.page.ueditor.execCommand('serverparam',{'CSRFToken': zblog.newCsrf()});
   });
   
-  zblog.page.epiceditor=new EpicEditor({
-    basePath: window.location.protocol+"//"+window.location.port+window.location.host+"/resource/epiceditor-0.2.3",
-    useNativeFullscreen: false,
-    clientSideStorage: false,
-    file:{
-      defaultContent: $("#editor-txt-tt").val(),
-      autoSave: false
-    },
-    autogrow: {
-      minHeight: 400,
-      maxHeight: 600
-    }
-  });
-  zblog.page.epiceditor.load();
 });
 
 zblog.page.insert=function(){
@@ -43,20 +29,7 @@ zblog.page.insert=function(){
   }
   
   var _getText=function(){
-    var result;
-    switch(zblog.page.editType){
-    case "ue":
-      result = zblog.page.ueditor.getContent();
-      break;
-    case "txt":
-      result = $("#editor-txt-tt").val();
-      break;
-    case "mk":
-      result = zblog.page.epiceditor.getElement('previewer').body.innerHTML;
-      break;
-    default: result="";
-    }
-    
+    var result = zblog.page.ueditor.getContent();
     return result;
   };
 

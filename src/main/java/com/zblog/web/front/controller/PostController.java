@@ -16,10 +16,11 @@ import com.zblog.core.WebConstants;
 import com.zblog.core.util.CookieUtil;
 import com.zblog.service.PostService;
 import com.zblog.service.vo.PostVO;
+import com.zblog.web.front.base.BaseController;
 
 @Controller
 @RequestMapping("/posts")
-public class PostController{
+public class PostController extends BaseController{
   @Autowired
   private PostManager postManager;
   @Autowired
@@ -43,7 +44,8 @@ public class PostController{
       model.addAttribute("prev", postService.getPrevPost(id));
     }
 
-    return post != null ? "post" : "404";
+    String jsp = ( post != null ? "post" : "404");
+    return analyzeView(jsp);
   }
 
 }

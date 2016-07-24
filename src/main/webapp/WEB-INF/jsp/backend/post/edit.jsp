@@ -8,7 +8,6 @@
   <jsp:include page="../common/bootstrap.jsp" flush="false" />
   <script type="text/javascript" src="${g.domain}/resource/ueditor-1.4.3/ueditor.config.js"></script>
   <script type="text/javascript" src="${g.domain}/resource/ueditor-1.4.3/ueditor.all.js"></script>
-  <script type="text/javascript" src="${g.domain}/resource/epiceditor-0.2.3/js/epiceditor.min.js"></script>
  </head>
  <body style="margin-top: 50px;">
   <jsp:include page="../common/navbar.jsp" flush="false" />
@@ -35,7 +34,7 @@
                   <script id="ueditor" style="width: 100%; height: 350px;" type="text/plain">${post.content}</script>
                 </div>
             </div>
-            <div class="panel-footer text-success">注:此三种编辑模式相互独立,最终以当前选中标签页内容提交</div>
+            <div class="panel-footer text-success">&nbsp;</div>
            </div>
          </div>
          <div class="col-sm-3 .col-md-3">

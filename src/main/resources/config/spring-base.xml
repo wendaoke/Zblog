@@ -14,6 +14,7 @@
   <import resource="spring-service.xml" />
   <import resource="spring-cache.xml" />
   <import resource="spring-biz.xml" />
+  <import resource="spring-rest.xml" />  
   <!-- 从Srping配置文件中根据id读取Bean -->
   <bean class="com.zblog.core.plugin.ApplicationContextUtil" />
   

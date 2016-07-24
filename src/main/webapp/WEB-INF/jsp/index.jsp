@@ -15,9 +15,9 @@
      <c:if test="${category!=null||tag!=null||archive!=null||search!=null ||author!=null}">
        <div id="archive_headline"><h2>
         <c:choose>
-          <c:when test="${category!=null}">'<span>${category}</span>' 目录归档</c:when>
+          <c:when test="${category!=null}">'<span>${category}</span>' 目录</c:when>
           <c:when test="${tag!=null}">标签 '<span>${tag}</span>'</c:when>
-          <c:when test="${search!=null}">搜索结果之于 [ '<span>${search}</span>' ] - ${page.totalCount}条</c:when>
+          <c:when test="${search!=null}">搜索 [ '<span>${search}</span>' ] - ${page.totalCount}条</c:when>
           <c:when test="${author!=null}">
           	<span>${author.realName}</span>  分享 ${page.totalCount}次
           	<div>${author.description}</div>
@@ -106,13 +106,12 @@
     <div id="post_mask"></div>
     <div id="right_col">
      <div id="introduction_widget" class="side_widget clearfix">
-      <h3 class="headline">About</h3>
+      <h3 class="headline">关于我们</h3>
       <ul id="social_link">
         <li class="rss_button"><a target="_blank" href="${g.domain}/feed"></a></li>
-        <li class="github_button"><a target="_blank" href="https://github.com/dongfangshangren"></a></li>
+        <li class="github_button" style="display:none"><a target="_blank" href="https://github.com/dongfangshangren"></a></li>
       </ul>
-      <p>You can show your site introduction by using Site Introduction Widget. 
-       You also can show Social Icon on upper part, and search form at bottom. </p>
+      <p>我们专注我们的钓鱼事业！ </p>
       <div id="search_area" class="clearfix">
         <form method="get" action="${g.domain}">
            <div class="search_input">
