@@ -15,15 +15,24 @@
 	   </li>
    </shiro:hasRole>
    <shiro:hasAnyRoles name="editor">
-   <li><a class="nav-header" href="#">
-        <i class="left glyphicon glyphicon-send" aria-hidden="true"></i>文章
-        <i class="right glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
-        </a>
-     <ul class="sub-menu">
-      <li><a href="${g.domain}/backend/posts/edit">写文章</a></li>
-      <li><a href="${g.domain}/backend/posts">所有文章</a></li>
-    </ul>
-  </li>
+	   <li><a class="nav-header" href="#">
+	        <i class="left glyphicon glyphicon-send" aria-hidden="true"></i>文章
+	        <i class="right glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
+	        </a>
+	     <ul class="sub-menu">
+	      <li><a href="${g.domain}/backend/posts/edit">写文章</a></li>
+	      <li><a href="${g.domain}/backend/posts">所有文章</a></li>
+	    </ul>
+	  </li>
+	  <li><a class="nav-header" href="#">
+	        <i class="left glyphicon glyphicon-send" aria-hidden="true"></i>二手交易
+	        <i class="right glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
+	        </a>
+	     <ul class="sub-menu">
+	      <li><a href="${g.domain}/backend/secondhand/edit">发布物品</a></li>
+	      <li><a href="${g.domain}/backend/secondhand">发布历史</a></li>
+	    </ul>
+	  </li>
   </shiro:hasAnyRoles>
    <shiro:hasAnyRoles name="admin">
    <li><a class="nav-header" href="#">
@@ -34,6 +43,16 @@
       <li><a href="${g.domain}/backend/posts/edit">写文章</a></li>
       <li><a href="${g.domain}/backend/posts">所有文章</a></li>
       <li><a class="last" href="${g.domain}/backend/categorys">文章分类</a></li>
+    </ul>
+  </li>
+  <li><a class="nav-header" href="#">
+        <i class="left glyphicon glyphicon-send" aria-hidden="true"></i>二手交易
+        <i class="right glyphicon glyphicon-chevron-up" aria-hidden="true"></i>
+        </a>
+     <ul class="sub-menu">
+      <li><a href="${g.domain}/backend/secondhand/edit">发布物品</a></li>
+      <li><a href="${g.domain}/backend/secondhand">发布历史</a></li>
+      <li><a class="last" href="${g.domain}/backend/secondhandcategory/list">物品分类</a></li>      
     </ul>
   </li>
   <li><a class="nav-header" href="#">

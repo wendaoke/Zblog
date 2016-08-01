@@ -12,7 +12,7 @@
 #menu_button:hover{background-color: #009dc4;color:#fff;}
 #icon_menu:after{font-family: "icomoon-zblog";content: "\e601"; font-size: 34px;font-style: normal;position: relative;right: -7px;top: 7px;}
 
-#left_col{margin-right: 0;width: auto;float: none;box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);margin:75px 10px 30px 10px;}
+#left_col{margin-right: 0;width: auto;float: none;box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);margin:10px 10px 30px 10px;}
 #post_mask{display: none;}
 .post_content{background-color: #fff;}
 #right_col{width: auto;float:none;padding: 20px;background-color: #fff;border-top: 1px solid #ccc;}
@@ -45,6 +45,5 @@ border-radius:0;background-image:url(../img/return_top1.gif);background-color: #
   .meta{width: 0;display: none;}
   .post{width: 100%;}
   #comment_header{margin-left:0};
-  
   #previous_next_post{display: none;}
 }
