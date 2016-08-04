@@ -36,7 +36,7 @@ public class ToolController{
   }
 
   @ResponseBody
-  @RequestMapping(value = "/ehcache/${cacheName}", method = RequestMethod.DELETE)
+  @RequestMapping(value = "/ehcache/{cacheName}", method = RequestMethod.DELETE)
   public Object clearEhcache(@PathVariable String cacheName){
     ehCacheManager.clear(cacheName);
     return new MapContainer("success", true);

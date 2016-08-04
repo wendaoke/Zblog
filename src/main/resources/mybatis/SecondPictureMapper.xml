@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zblog.core.dal.mapper.SecondPictureMapper">
+
+	<resultMap type="com.zblog.core.dal.entity.SecondPicture" id="SecondPictureResultMap">
+	    <id property="id" column="id"/>
+	    <result property="secondHand" column="second_hand"/>
+	    <result property="name" column="name"/>
+	    <result property="order" column="order"/>
+	</resultMap>
+	
+
+	 <select id="loadById" parameterType="java.lang.String" resultType="SecondPicture">  
+	    select  id,second_hand,name,order from second_picture where id = #{id}
+	 </select>
+
+	 <select id="loadBySecondHandId" parameterType="java.lang.String" resultType="SecondPicture">  
+	    select  id,second_hand,name,order from second_picture where second_hand = #{secondHand}
+	 </select>
+	 	 
+	 <delete id="deleteById" parameterType="java.lang.String">
+		delete from second_picture where id = #{id}
+	</delete>
+	
+</mapper>

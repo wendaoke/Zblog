@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zblog.core.dal.mapper.SecondHandMapper">
+
+	<resultMap type="com.zblog.core.dal.entity.SecondHand" id="SecondHandResultMap">
+	    <id property="id" column="id"/>
+	    <result property="title" column="title"/>
+	    <result property="originalPrice" column="original_price"/>
+	    <result property="presentPrice" column="present_price"/>
+	    <result property="province" column="province"/>
+	    <result property="city" column="city"/>
+	    <result property="district" column="district"/>	    	    
+	    <result property="originalPrice" column="creator"/>
+	    <result property="createTime" column="create_time"/>
+	    <result property="lastUpdate" column="last_update"/>
+	    <collection property="piclst"  column="id" ofType="com.zblog.core.dal.entity.SecondPicture" javaType="ArrayList" 
+			select="com.zblog.core.dal.mapper.SecondPicture.loadBySecondHandId" >
+	    </collection>
+	</resultMap>
+	
+	<select id="listHistory" resultMap="SecondHandResultMap">  
+	    SELECT id,title,content,original_price,present_price,province,city,district,creator,create_time,last_update from second_hand
+	 </select>
+	
+	 <select id="list" resultType="SecondHand">  
+	    SELECT id,title,content,original_price,present_price,province,city,district,creator,create_time,last_update from second_hand
+	 </select>
+	
+	 <select id="loadById" parameterType="java.lang.String" resultMap="SecondHandResultMap">  
+	    select  id,title,content,original_price,present_price,province,city,district,creator,create_time,last_update from second_hand where id = #{id}
+	 </select>
+	 
+	 <insert id="insert" parameterType="SecondHand">
+	    insert into second_hand(id,title,content,original_price,present_price,province,city,district,creator,creator,create_time,last_update) 
+	       values(#{id},#{title},#{content},#{originalPrice},#{presentPrice},#{province},#{city},#{district},#{creator},#{createTime},#{lastUpdate})
+	 </insert>
+	 
+	 <update id="update" parameterType="java.lang.String">
+	   update second_hand set title= #{title},content = #{content},original_price=#{originalPrice},present_price=#{presentPrice},
+	   province=#{province},city=#{city},district=#{district},last_update=#{lastUpdate} 
+	   where id = #{id}
+	 </update>
+	 
+	 <delete id="deleteById" parameterType="java.lang.String">
+	delete from second_hand where id = #{id}
+	</delete>
+	
+</mapper>

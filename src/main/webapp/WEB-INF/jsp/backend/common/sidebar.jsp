@@ -51,7 +51,7 @@
         </a>
      <ul class="sub-menu">
       <li><a href="${g.domain}/backend/secondhand/edit">发布物品</a></li>
-      <li><a href="${g.domain}/backend/secondhand">发布历史</a></li>
+      <li><a href="${g.domain}/backend/secondhand/list">发布历史</a></li>
       <li><a class="last" href="${g.domain}/backend/secondhandcategory/list">物品分类</a></li>      
     </ul>
   </li>
