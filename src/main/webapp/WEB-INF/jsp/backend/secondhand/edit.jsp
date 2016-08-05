@@ -7,9 +7,14 @@
  <head>
   <jsp:include page="../common/bootstrap.jsp" flush="false" />
   <link rel="stylesheet" href="${g.domain}/resource/css/chosen.min.css">
+  <link rel="stylesheet" href="${g.domain}/resource/css/dropzone.css">  
+  <link rel="stylesheet" href="${g.domain}/resource/css/jquery.fileupload.css">   
   <script type="text/javascript" src="${g.domain}/resource/js/distpicker.data.min.js"></script>
   <script type="text/javascript" src="${g.domain}/resource/js/distpicker.min.js"></script>
   <script type="text/javascript" src="${g.domain}/resource/js/chosen.jquery.min.js"></script>  
+  <script type="text/javascript" src="${g.domain}/resource/js/vendor/jquery.ui.widget.js"></script>  
+  <script type="text/javascript" src="${g.domain}/resource/js/jquery.iframe-transport.js"></script>
+  <script type="text/javascript" src="${g.domain}/resource/js/jquery.fileupload.js"></script>          
   <script type="text/javascript" src="${g.domain}/resource/ueditor-1.4.3/ueditor.config.js"></script>
   <script type="text/javascript" src="${g.domain}/resource/ueditor-1.4.3/ueditor.all.js"></script>
  </head>
@@ -40,6 +45,41 @@
             </div>
             <div class="panel-footer text-success">&nbsp;</div>
            </div>
+           <div  class="panel panel-default">
+			    <span class="btn btn-success fileinput-button" style="margin-bottom:20px">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>添加图片</span>
+                    <input type="file" id="fileupload" name="files[]" data-url="${g.domain}/backend/secondhand/upload" multiple>
+                </span>
+			    <div id="progress">
+			        <div style="width: 0%;"></div>
+			    </div>
+			    <table role="presentation" class="table table-striped" id="uploaded-files">
+			    	<tbody class="files">
+			    		<tr class="template-download fade in">
+        					<td>
+        						<span class="preview">                
+                    				<a href="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg" title="4f707624bad44.jpg" download="4f707624bad44.jpg" data-gallery=""><img src="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg.80x80.jpg"></a>
+               					</span>
+        					</td>
+        					<td>
+            					<p class="name">
+                    			<a href="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg" title="4f707624bad44.jpg" download="4f707624bad44.jpg" data-gallery="">4f707624bad44.jpg</a>
+					            </p>
+        					</td>
+        					<td>
+            					<span class="size">86.58 KB</span>
+        					</td>
+        					<td>
+                				<button class="btn btn-danger delete" data-type="DELETE" data-url="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg">
+                    			<i class="glyphicon glyphicon-trash"></i>
+                    			<span>Delete</span>
+                				</button>
+        					</td>
+    					</tr>
+    				</tbody>
+    			</table>
+			</div>
          </div>
          <div class="col-sm-3 .col-md-3">
            <div class="panel panel-default">
