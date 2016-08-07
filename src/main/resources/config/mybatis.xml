@@ -17,7 +17,8 @@
     <typeAlias alias="SecondCategory" type="com.zblog.core.dal.entity.SecondCategory" />
     <typeAlias alias="SecondHand" type="com.zblog.core.dal.entity.SecondHand" />    
     <typeAlias alias="SecondPicture" type="com.zblog.core.dal.entity.SecondPicture" />   
-           
+    <typeAlias alias="SecondHandCategory" type="com.zblog.core.dal.entity.SecondHandCategory" />
+               
     <typeAlias alias="PostVO" type="com.zblog.service.vo.PostVO" />
     <typeAlias alias="PageVO" type="com.zblog.service.vo.PageVO" />
     <typeAlias alias="CommentVO" type="com.zblog.service.vo.CommentVO" />
@@ -35,5 +36,6 @@
     <mapper resource="mybatis/SecondCategoryMapper.xml" />
     <mapper resource="mybatis/SecondHandMapper.xml" />   
     <mapper resource="mybatis/SecondPictureMapper.xml" />  
+    <mapper resource="mybatis/SecondHandCategoryMapper.xml" />      
   </mappers>
 </configuration>

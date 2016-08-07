@@ -8,18 +8,22 @@
 	    <id property="id" column="id"/>
 	    <result property="secondHand" column="second_hand"/>
 	    <result property="name" column="name"/>
-	    <result property="order" column="order"/>
 	</resultMap>
 	
 
 	 <select id="loadById" parameterType="java.lang.String" resultType="SecondPicture">  
-	    select  id,second_hand,name,order from second_picture where id = #{id}
+	    select  id,second_hand,name from second_picture where id = #{id}
 	 </select>
 
 	 <select id="loadBySecondHandId" parameterType="java.lang.String" resultType="SecondPicture">  
-	    select  id,second_hand,name,order from second_picture where second_hand = #{secondHand}
+	    select  id,second_hand,name from second_picture where second_hand = #{secondHand}
 	 </select>
 	 	 
+	   <insert id="insert" parameterType="SecondPicture">
+	      insert into second_picture(id,second_hand,name) 
+	         values(#{id},#{secondHand},#{name})
+	   </insert>
+   	 	 
 	 <delete id="deleteById" parameterType="java.lang.String">
 		delete from second_picture where id = #{id}
 	</delete>

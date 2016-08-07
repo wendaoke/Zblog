@@ -13,11 +13,11 @@ public class SecondHandFormValidator {
 			form.put("msg", "标题不能为空");
 		} else if (StringUtils.isBlank(hand.getContent())) {
 			form.put("msg", "内容不能为空");
-		}else if(null != hand.getProvince()){
+		}else if(StringUtils.isBlank(hand.getProvince())){
 			form.put("msg", "省份不能为空");
-		}else if(null != hand.getCity()){
+		}else if(StringUtils.isBlank(hand.getCity())){
 			form.put("msg", "城市不能为空");
-		}else if(null != hand.getDistrict()){
+		}else if(StringUtils.isBlank(hand.getDistrict())){
 			form.put("msg", "地区不能为空");
 		}
 		return form;

@@ -11,7 +11,7 @@ public class SecondHand extends BaseEntity {
 	private String city;
 	private String district;
 	private List<SecondPicture> piclst;
-
+	private String categorys;
 	public List<SecondPicture> getPiclst() {
 		return piclst;
 	}
@@ -78,6 +78,16 @@ public class SecondHand extends BaseEntity {
 	public void setDistrict(String district) {
 		this.district = district;
 	}
+
+	public String getCategorys() {
+		return categorys;
+	}
+
+	public void setCategorys(String categorys) {
+		this.categorys = categorys;
+	}
+
+
 
  
 

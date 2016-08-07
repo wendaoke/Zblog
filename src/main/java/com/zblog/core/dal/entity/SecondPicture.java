@@ -4,7 +4,6 @@ public class SecondPicture {
 	  private String id;
 	  private String secondHand;
 	  private String name;
-	  private int order;
 	public String getId() {
 		return id;
 	}
@@ -14,9 +13,6 @@ public class SecondPicture {
 	public String getName() {
 		return name;
 	}
-	public int getOrder() {
-		return order;
-	}
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -25,8 +21,5 @@ public class SecondPicture {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public void setOrder(int order) {
-		this.order = order;
 	}
 }

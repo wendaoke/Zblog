@@ -29,13 +29,11 @@ $(function(){
       done: function (e, data) {
           $("tr:has(td)").remove();
           $.each(data.result, function (index, file) {
-
               $("#uploaded-files").append(
                       $('<tr/>')
                       .append($('<td/>').text(file.fileName))
-                      .append($('<td/>').text(file.fileSize))
                       .append($('<td/>').text(file.fileType))
-                      .append($('<td/>').html("<a href='/backend/secondhand/get/"+index+"'>Click</a>"))
+                      .append($('<td/>').html("<a href='/backend/secondhand/delimg/"+index+"'>删除</a>"))
                       )//end $("#uploaded-files").append()
           }); 
       },
@@ -66,24 +64,27 @@ zblog.secondhand.insert=function(){
     return result;
   }
 
-  var postid=$("#postid").val();
-  var data={title : title,
+  var secondhandid=$("#secondhandid").val();
+  var data={
+    	id:secondhandid,
+		title : title,
         content : _getText(),
-        tags : $("#tags").val(),
-        categoryid : $("#category").val(),
-        pstatus : $("input:radio[name=pstatus]:checked").val(),
-        cstatus : $("input:radio[name=cstatus]:checked").val()
+        originalPrice : $("#originalPrice").val(),
+        presentPrice : $("#presentPrice").val(),
+        province : $("#province").val(),
+        city : $("#city").val(),
+        district : $("#district").val(),        
+        categorys : $("#category").val().join(",")
       };
-  if(postid.length>0) data.id=postid;
   
   $.ajax({
-    type:postid.length>0?"PUT":"POST",
-    url:zblog.getDomainLink("posts"),
+    type:"POST",
+    url:zblog.getDomainLink("secondhand/insert"),
     data:data,
     dataType:"json",
     success:function(data){
 	    if(data&&data.success){
-	      window.location.href=".";
+	      window.location.href=zblog.getDomainLink("secondhand/edit");
       }else{
     	 alert(data.msg);
       }
@@ -98,6 +99,7 @@ zblog.secondhand.remove=function(postid){
    dataType:"json",
    success:function(data){
 	   if(data&&data.success){
+		 alert(data.msg);
 	     window.location.reload();
      }else{
        alert(data.msg);

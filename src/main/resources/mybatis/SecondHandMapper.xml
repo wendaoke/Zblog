@@ -33,7 +33,7 @@
 	 </select>
 	 
 	 <insert id="insert" parameterType="SecondHand">
-	    insert into second_hand(id,title,content,original_price,present_price,province,city,district,creator,creator,create_time,last_update) 
+	    insert into second_hand(id,title,content,original_price,present_price,province,city,district,creator,create_time,last_update) 
 	       values(#{id},#{title},#{content},#{originalPrice},#{presentPrice},#{province},#{city},#{district},#{creator},#{createTime},#{lastUpdate})
 	 </insert>
 	 

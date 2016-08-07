@@ -36,7 +36,7 @@
           <div class="panel panel-default">
             <div class="panel-heading"><span class="icon glyphicon glyphicon-edit"></span>标题/内容</div>
             <div class="panel-body">
-              <input type="hidden" id="postid" value="${post.id}" />
+              <input type="hidden" id="secondhandid" value="${secondHand.id}" />
               <input type="text" id="title" class="form-control input-md" placeholder="输入标题" value="${post.title}"><br/>
                 <div class="tab-pane" id="editor-ue">
                   <!-- 必须要添加width:100% -->
@@ -49,34 +49,13 @@
 			    <span class="btn btn-success fileinput-button" style="margin-bottom:20px">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>添加图片</span>
-                    <input type="file" id="fileupload" name="files[]" data-url="${g.domain}/backend/secondhand/upload" multiple>
+                    <input type="file" id="fileupload" name="files[]" data-url="${g.domain}/backend/secondhand/upload/${secondHand.id}" multiple>
                 </span>
 			    <div id="progress">
 			        <div style="width: 0%;"></div>
 			    </div>
 			    <table role="presentation" class="table table-striped" id="uploaded-files">
 			    	<tbody class="files">
-			    		<tr class="template-download fade in">
-        					<td>
-        						<span class="preview">                
-                    				<a href="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg" title="4f707624bad44.jpg" download="4f707624bad44.jpg" data-gallery=""><img src="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg.80x80.jpg"></a>
-               					</span>
-        					</td>
-        					<td>
-            					<p class="name">
-                    			<a href="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg" title="4f707624bad44.jpg" download="4f707624bad44.jpg" data-gallery="">4f707624bad44.jpg</a>
-					            </p>
-        					</td>
-        					<td>
-            					<span class="size">86.58 KB</span>
-        					</td>
-        					<td>
-                				<button class="btn btn-danger delete" data-type="DELETE" data-url="https://jquery-file-upload.appspot.com/image%2Fjpeg/2901432121/4f707624bad44.jpg">
-                    			<i class="glyphicon glyphicon-trash"></i>
-                    			<span>Delete</span>
-                				</button>
-        					</td>
-    					</tr>
     				</tbody>
     			</table>
 			</div>
@@ -87,38 +66,35 @@
              <div class="panel-body">
                <div class="form-group" >
                  <label for="tags">原价</label>
-                 <input type="text" class="form-control" id="tags" value="${z:join(post.tags,',')}" />
+                 <input type="text" class="form-control" id="originalPrice" value="${secondHand.originalPrice}" />
                </div>
                <div class="form-group" >
                  <label for="tags">现价</label>
-                 <input type="text" class="form-control" id="tags" value="${z:join(post.tags,',')}" />
+                 <input type="text" class="form-control" id="presentPrice" value="${secondHand.presentPrice}" />
                </div>               
                <div class="form-group">
                  <label for="pstatus">地区</label><br/>
 					<div data-toggle="distpicker">
-					  <select class="form-control"  data-province="---- 选择省 ----"></select>
-					  <select class="form-control"  data-city="---- 选择市 ----"></select>
-					  <select class="form-control"  data-district="---- 选择区 ----"></select>
+					  <select class="form-control"  id="province" data-province="---- 选择省 ----"></select>
+					  <select class="form-control"  id="city" data-city="---- 选择市 ----"></select>
+					  <select class="form-control"  id="district" data-district="---- 选择区 ----"></select>
 					</div>
                </div>
                <div class="form-group" >
 	                 <label for="categoty">分类</label>
 		                 <select data-placeholder="---- 选择分类 ----" class="chosen-select form-control" multiple id="category" >
+		                     <option value=""></option>	
 		                   <c:forEach items="${categorys}" var="category" begin="0">
-		                     <option value="${category.id}" ${post.category.id==category.id?'selected':''}>
-		                        ├─<c:if test="${category.level==3}">└─</c:if>${category.name}
-		                      </option>
+		                     <option value="${category.id}" >
+		                        ${category.name}
+		                     </option>
 		                   </c:forEach>
-		                    <option value=""></option>
-				            <option value="1" >United States</option>
-				            <option value="2" >United Kingdom</option>
-				            <option value="3">Afghanistan</option>
 		                 </select>
                </div>
 
              </div>
              <div class="panel-footer">
-               <button type="button" class="btn btn-info btn-block" onclick="zblog.post.insert();">发布</button>
+               <button type="button" class="btn btn-info btn-block" onclick="zblog.secondhand.insert();">发布</button>
              </div>
            </div>
          </div>
